@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">    <!-- html 태그의 lang 속성(ko: 한국어)-->
+<head>  <!-- body 태그에 필요한 스타일시트와 자바스크립트를 제공-->
+    <meta charset='utf-8'>  <!-- meta: 웹 페이지에 추가 정보 전달-->
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>   <!-- 웹 브라우저에 표시하는 제목 지정-->
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>     
+    <script src='main.js'></script> --> <!-- script: 웹페이지에 자바 스크립트 추가-->
+    <!-- style: 웹페이지에 스타일 시트 추가-->
+    <style>
+        h1{
+            color: red;
+            background-color: blue;
+        }
+    </style>    
+</head>
+<body>  <!-- 사용자에게 실제로 보이는 부분-->
+    <!-- 태그와 요소 -->
+    <!-- 글자 태그-->
+    <!-- h1 ~ h6: 제목 글자 생성-->
+    <h1>Hello, H1</h1>
+    <h2>Hello, H2</h2>
+    <h3>Hello, H3</h3>
+    <h4>Hello, H4</h4>
+    <h5>Hello, H5</h5>  <!-- 잘안씀 -->
+    <h6>Hello, H6</h6>  <!-- 잘안씀 -->
+    <!-- 본문 생성 -->
+    <!-- p: 본문 문단 생성, br: 줄 바꿈,  hr: 수평 줄 삽입-->
+    <!-- Lorem10 탭: 자동으로 단어 10개 문장 만들어주기-->
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id dolores totam deserunt recusandae omnis laborum molestiae officia dignissimos vitae doloremque beatae iste minima sunt inventore molestias aspernatur excepturi, exercitationem corrupti!</p>  
+    <hr>
+
+    <!-- div: 구분, 다른 요소를 담을수 있는 태그 -->
+    <div>   
+        <h2>TEST</h2>
+        <br><br><br><br>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, beatae.</P>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, beatae.</P>
+    </div>
+
+    <!-- 속성: 태그에 추가정보를 부여할때 사용 
+          ex) h1 속성 title, img 속성 src -->
+    <h1 title="header">My Title</h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSVOV36yUEePp9Be7dWLgm8sQP_xkogJ-DQ&usqp=CAU" width="700">
+
+
+    <!-- 앵커 태그: 다른 웹페이지나 웹 페이지 내부의 특정 위치로 이동 -->
+    <!-- 특정 웹 페이지 연결하기
+        a(Anchor)태그의 속성
+            href: 이동할 웹페이지
+            target: 페이지 여는 형태 _blank: 새 탭   _self: 현재 탭-->    
+    <h3>앵커태그</h3>
+    <a href="https://www.naver.com" target="_blank">네이버</a>  
+    <a href="https://www.google.com" target="_self">구글</a>
+    <br>
+    <!-- 상대경로, 절대경로-->
+    <a href="./image1.jpg">가디언즈 오브 캘럭시 포스터</a>
+    <a href="file:///C:/Source/aspnet_2023/Day01/image1.jpg">가디언즈 오브 캘럭시 포스터</a>
+</body>
+</html>
