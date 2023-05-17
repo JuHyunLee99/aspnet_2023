@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>입력태그</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+</head>
+<body>
+
+    <!-- 입력태그-->
+    <!-- form 태그: 영역 생성
+        속성
+        ● action: 데이터를 전달할 목적지
+        ● method: 전송 방식 
+            ○ GET 방식: 주소에 데이터를 입력해서 전달
+            ○ POST 방식: 주소 변경 없이 비밀스럽게 데이터 전달-->
+    <!-- input 태그
+        속성
+        text, button, checkbox, file, hidden, image, password, raidio, reset, submit -->
+    <!-- textarea 태그: 여러 행의 글자 입력 양식 생성
+        속성: cola / rows-->
+    <!-- select / optgroup / option 태그
+        선택 양식 생성 / 옵션 그룹화 / 옵션 생성 -->
+    <!-- fieldset / legend 태그
+        입력양식의 그룹 지정 / 입력 양식 그룹의 이름 지정 -->
+    <form method="get">
+
+        <input type="text" name="search" value="텍스트"><br>
+        <input type="password" name="pwd" value="12345"><br>
+        <input type="checkbox" name="strawberry">딸기 &nbsp; <input type="checkbox" name="banana">바나나<br>
+        <input type="radio" name="gender" value="male">남성<input type="radio" name="gender" value="femal">여성<br>
+        <input type="file" name="photo"><br>
+        <input type="image" src=""><br>
+        <input type="color" value="#FF0000"><br>
+        <input type="month" name="2023-05"><br>
+        <input type="email" value="juhyun.lee0829@daum.net"><br>
+        <select name="간식">
+            <option>--선택--</option>
+            <option>김밥</option>
+            <option>떡볶이</option>
+            <option>순대</option>
+            <option>어묵</option>
+        </select><br>
+        <!-- 히든태그-->
+        <input type="hidden" name="userid" value="TED7899"><br>
+        <input type="submit" value="승인">
+        <input type="button" value="버튼">
+        <input type="reset" value="초기화">
+     </form>
+</body>
+</html>

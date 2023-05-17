@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>CSS</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+
+    <!-- 스타일 시트는 CSS로 작성된 코드 -->
+    <style> 
+    /* CSS 블록: 선택자{스타일 속성: 스타일 값;} */
+    /* CSS 선택자 종류
+        *(전체 선택자)   태그(태그 선택자)  #아이디(아이디 선택자) .클래스(클래스 선택자) */
+        *{
+            color: red;
+        }
+        h2 {
+            color: blue;
+        }
+        #first{
+            color: brown;
+        }
+        .phrase{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- 속성 id는 중복불가 class는 중보가능 -->
+    <h1 class ="title">큰 타이틀</h1>
+    <h2 class = "subtitle">타이틀</h2>
+    <p id="first" class="phrase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis laudantium ea fugit hic similique deserunt adipisci aspernatur placeat a. Fugiat fugit aliquam corrupti voluptates! Facere inventore aliquid sit aperiam earum.</p>
+    <p id="second" class="phrase">Lorem ipsum dolor sit amet consectetur adipisicing elit. A nam illum ratione tempore asperiores cum est esse explicabo doloremque, iste officia vitae dignissimos. Eligendi dolore obcaecati magni magnam. Modi, quasi?</p>
+</body>
+</html>

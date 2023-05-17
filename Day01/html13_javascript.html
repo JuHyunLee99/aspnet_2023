@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>javascript</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- main.css 파일 연결-->
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'> 
+    <style>
+        /* h1 {
+            background-color: blueviolet;
+        } */
+        </style>
+        <!-- main.js 파일 연결-->
+        <script src='main.js'></script> 
+    <script>
+        //  옛날방식
+        alert(1 + 30)
+        // 요즘은 console 씀
+        console.log("Hello, console log");
+        console.log("Hello, console log");
+        var a = 1;
+        var b = 3.141592;
+        console.log(a == b);
+        console.log(a === b);    // js에만 있는 객체까지 모두 일치하는 겨우
+        let c = 1.5;
+        console.log(c);
+
+        var radius = 10;
+        const pi = 3.141592;
+        alert('원의 크기는 ' + radius * radius * pi);
+
+        // javascript 특이한 함수 선언 방식
+        var test2 = function () {
+            alert('test2');
+            alert('함수선언이 조금 다름니다.');
+        }
+        test2()
+
+        // 객체
+        var product = {
+            name: '7D 건조망고',
+            type: '당절임',
+            성분: ['망고', '설탕', '메타중아황산나트륨'],
+            원산지: '필리핀',
+            imported: true,
+            price: 5000,
+       }
+
+       console.log(product.name);   //  7D 건조망고
+       console.log(product['name']);    // 7D 건조망고
+       console.log(product.성분);
+
+       for(var i in product) {
+        console.log(i + '/' + product[i]);
+       }
+    </script>
+</head>
+<body>
+    <h1>Hellow HTML5</h1>
+</body>
+</html>
