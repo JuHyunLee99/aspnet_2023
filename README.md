@@ -18,7 +18,7 @@ ASP.NET 학습 리포지토리
 ## 3일차
 - 웹기본
 	- Bootstrap 예제제클로닝
-	- 핀터레스트스타일 페이지 클로닝
+	- 핀터레스트스타일 페이지 클로닝  
 Bootstrap 앨범사이트 클로닝
 <img src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet01.gif?raw=true" width="780"/>
 		   
