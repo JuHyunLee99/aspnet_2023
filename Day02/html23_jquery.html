@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>jQuery</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+    <script
+    src="https://code.jquery.com/jquery-3.7.0.js"
+    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            // 앞족 function은 이벤트에 대한 처리함수
+            // , 뒤쪽 function은 이벤트에 반대에 대한 처리함수
+            $('input').click(function () {
+                $('.page').toggle(500);
+                });
+
+            $('.box').css({
+                width: '100px',
+                height: '100px',
+                backgroundColor: 'red'
+            }).animate({
+                width: '500px',
+                opacity: 0.5
+            }, 1500)
+            });
+    </script>
+</head>
+<body>
+    <input type="button" value="Toggle">
+    <div class="page">
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus error ea quia? Accusamus libero voluptatum omnis animi incidunt neque labore obcaecati, unde, aliquid, rerum consequuntur iste voluptates voluptate inventore quasi.</h1>
+    </div>
+
+    <div class="box"></div>
+</body>
+</html>

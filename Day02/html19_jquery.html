@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>jQuery</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+
+    <!-- js파일 다운로드 링크 https://jquery.com/-->
+    <!-- <script src="./js/jquery-3.7.0.min.js"></script>  -->
+
+    <!-- js파일 다운로드 받을 필요 없는 방식-->
+    <!-- <script
+    src="https://code.jquery.com/jquery-3.7.0.js"
+    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script> -->
+
+    <script>
+        // 전통 자바스크립트로 온로드 할때 방식
+        // window.onload = function() {
+        //     var headers = document.querySelectorAll('h1');
+        //     for (var i = 0; i < headers.length; i++) {
+        //         var header = headers[i];
+        //         header.style.color = 'red';
+        //         header.style.backgroundColor = 'black';
+        //     }   // 이거랑
+        // }
+        // jQuery로 온로드 할때 방식
+        $(document).ready(function() {
+            $('h1').css('color', 'blue');
+            $('h1').css('background-color', 'gray'); // 이거량 완벽하게 똑같은 처리
+        });
+    </script>
+</head>
+<body>
+    <h1>Title</h1>
+    <h1>Title</h1>
+    <h1>Title</h1>
+</body>
+</html>

@@ -13,5 +13,5 @@ ASP.NET 학습 리포지토리
 - 웹 기본
 	- Javascript DOM
 	- jQuery
-	- Bootstrap
+	- Bootstrap [링크].(https://getbootstrap.com)
 	- 웹페이지 프로젝트
