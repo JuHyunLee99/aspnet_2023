@@ -13,5 +13,12 @@ ASP.NET 학습 리포지토리
 - 웹 기본
 	- Javascript DOM
 	- jQuery
-	- Bootstrap [링크].(https://getbootstrap.com)
-	- 웹페이지 프로젝트
+	- Bootstrap [링크](https://getbootstrap.com)
+	- Bootstrap 예제클로닝
+## 3일차
+- 웹기본
+	- Bootstrap 예제제클로닝
+	- 핀터레스트스타일 페이지 클로닝
+Bootstrap 앨범사이트 클로닝
+<img src="" width=""/>
+		   
