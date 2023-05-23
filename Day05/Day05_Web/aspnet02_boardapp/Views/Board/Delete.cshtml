@@ -1,0 +1,54 @@
+﻿@model aspnet02_boardapp.Models.Board
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-8">
+            <h4 class="text-primary">게시판 글삭제</h4>
+        </div>
+        <div class="col-4 test-end">
+        </div>
+    </div>
+    <div class="col">
+        <h5 class="text-warning">삭제하시겠습니까?</h5>
+    </div>
+</div>
+
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form asp-action="DeletePost">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="UserId" class="control-label"></label>
+                    <input asp-for="UserId" class="form-control" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label"></label>
+                    <input asp-for="UserName" class="form-control" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contents" class="control-label"></label>
+                    <!-- Delete의 textarea Trumbowyg 에디터 때문에 readonly가 안됨. -->
+                    <textarea asp-for="Contents" class="form-control editor" rows="10" readonly></textarea>
+                </div>
+                <br />
+                <div class="form-group texst-end">
+                    <button type="submit" value="삭제" class="btn btn-sm btn-danger">
+                        <i class="bi bi-trash3"></i>&nbsp;삭제
+                    </button>
+                    <a asp-controller="board" asp-action="Index" class="btn btn-sm btn-success">
+                        <i class="bi bi-list-ol"></i>&nbsp;목록
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
