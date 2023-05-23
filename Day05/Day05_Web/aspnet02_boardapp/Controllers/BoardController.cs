@@ -2,6 +2,8 @@
 using aspnet02_boardapp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using MySqlConnector;
 
 namespace aspnet02_boardapp.Controllers
 {
@@ -15,10 +17,39 @@ namespace aspnet02_boardapp.Controllers
         {
             _db = db;   // 알아서 DB가 연결
         }
-
-        public IActionResult Index()    // 게시판 최초 화면 리스트
+        // startcount = 1, 11, 21, 31, 41
+        // endcount = 10, 20, 30, 40, 50
+        public IActionResult Index(int page=1)    // 게시판 최초 화면 리스트
         {
-            IEnumerable<Board> objBoardList = _db.Boards.ToList();  //SELECT쿼리
+            //EntityFramwork로 작업해도 되고
+            //IEnumerable<Board> objBoardList = _db.Boards.ToList();  //SELECT쿼리
+            // sql 쿼리로 작업해도 됨.
+            //var objBoardList = _db.Boards.FromSql($"SELECT * FROM boards").ToList();
+            var totalCount = _db.Boards.Count();    // 12
+            var pageSize = 10; // 게시판 한페이지 10개씩 리스트
+            var totalPage = totalCount / pageSize;  // 1
+
+            if (totalCount % pageSize > 0) { totalPage++; } // 나머지 있으면 한페이지 더  // 2
+
+            // 제일 첫번째 페이지, 제일 마지막 페이지
+            var countPage = 10;
+            var startPage = ((page - 1) / countPage) * countPage +1;    // 12데이터일때 1페이지 startPage = 1
+            var endPage = startPage + countPage - 1;                    // 10
+            if (totalPage< endPage) endPage = totalPage;                // 10
+
+            int startCount = ((page-1) * countPage) +1;                 // 1
+            int endCount = startCount + (pageSize - 1);                 // 10
+
+            //  HTML 화면에서 사용하기 위해서 선언 == ViewData, TempData 동일한 역할
+            ViewBag.StartPage = startPage;
+            ViewBag.EndPage = endPage;
+            ViewBag.Page = page;
+            ViewBag.TotalPage = totalPage;
+
+            var StartCount = new MySqlParameter("startCount", startCount);
+            var EndCount = new MySqlParameter("end", endCount);
+
+            var objBoardList = _db.Boards.FromSql($"CALL NEW_PagingBoard({StartCount},{EndCount})").ToList();
             return View(objBoardList);
         }
 
@@ -36,11 +67,22 @@ namespace aspnet02_boardapp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Board board)
         {
+
+            try
+            {
             board.PostDate = DateTime.Now;  // 현재 저장하는 일시를 할당
             _db.Boards.Add(board);    // INSERT
             _db.SaveChanges();    //COMMIT
 
-            return RedirectToAction("Index", "Board");
+            TempData["succeed"] = "새 게시글이 저장되었습니다."; // 성공메세지
+
+            }
+            catch (Exception)
+            {
+                TempData["error"] = "게시글 작성에 오류발생했습니다.";   // 에러 메세지
+            }
+
+            return RedirectToAction("Index", "Board");  // localhost/Board/Index 화면을 이동
         }
 
         public IActionResult Edit(int? Id)
@@ -67,6 +109,9 @@ namespace aspnet02_boardapp.Controllers
             board.PostDate = DateTime.Now;  // 현재 저장하는 일시를 할당
             _db.Boards.Update(board);   // UPDATE query실행
             _db.SaveChanges();          // COMMIT
+
+            TempData["succeed"] = "게시글이 수정되었습니다."; // 성공메세지
+
 
             return RedirectToAction("Index", "Board");
         }
@@ -100,6 +145,8 @@ namespace aspnet02_boardapp.Controllers
 
             _db.Boards.Remove(board);   // Delete query실행
             _db.SaveChanges();          // COMMIT
+            TempData["succeed"] = "게시글이 삭제되었습니다."; // 성공메세지
+
 
             return RedirectToAction("Index", "Board");
         }
@@ -119,6 +166,9 @@ namespace aspnet02_boardapp.Controllers
                 return NotFound();
             }
 
+            board.ReadCount++;  // 조회수를 1증가
+            _db.Boards.Update(board);
+            _db.SaveChanges();
             return View(board);
         }
     }
