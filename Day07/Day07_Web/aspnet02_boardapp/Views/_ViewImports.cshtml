@@ -1,0 +1,9 @@
+﻿@using aspnet02_boardapp
+@using aspnet02_boardapp.Models
+@using Microsoft.AspNetCore.Identity
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@*회원가입, 로그린, 게시판 모든 화면에서 로그인관련 객체ㅐ를 사용하기 위해서*@
+@inject SignInManager<IdentityUser> signInManager
+@inject UserManager<IdentityUser> userManager
+@inject RoleManager<IdentityRole> roleManager   // 권한확인 추가

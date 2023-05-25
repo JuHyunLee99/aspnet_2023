@@ -33,3 +33,32 @@ Bootstrap 앨범사이트 클로닝
 APS.NET Core MVC 게시판
 <img
 src=" width="780"/>
+
+## 5일차
+- ASP.NET MVC
+	- 게이판 페이징까지
+<img
+src=" width="780"/>	
+## 6일차
+- ASP.NET MVC
+	- 게시판 정리
+	- 계정관리(회원가입, 로그인)
+<img
+src=" width="780"/>
+
+## 7일차
+- ASP.NET Core MVC
+	- 게시판 정리
+		- 아이디 삭제
+		- 번호표시)
+	- 권한관리
+		- 관리자, 사용자 분리
+		- 관리자 게시판글 모두 삭제 가능
+	
+## 8일차
+- ASP.NET Core MVC
+	- 부트스트랩 테마(SEO Dream) 적용
+	
+- APS.NET RestAPI
+- 개인포트폴리오
+	- 부트스트랩 테마 적용

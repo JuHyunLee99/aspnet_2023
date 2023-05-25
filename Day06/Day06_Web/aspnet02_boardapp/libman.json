@@ -1,0 +1,15 @@
+{ // 누겟패키지로 라이브러리 추가하는거랑 같음
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "Trumbowyg@2.27.3",
+      "destination": "wwwroot/lib/trumbowyg/"
+    }
+    // 라이브러리 더 추가할려면
+    //,
+    //{
+    //  "library": ""
+    //}
+  ]
+}
