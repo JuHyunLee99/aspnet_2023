@@ -31,7 +31,7 @@ Bootstrap 앨범사이트 클로닝
 	- ASP.NET 프로젝트
 
 APS.NET Core MVC 게시판  
-<img src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet03.PNG?raw=true" width="780"/>
+<img src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet03.png?raw=true" width="780"/>
 
 
 ## 5일차
