@@ -46,9 +46,10 @@
                         <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
                             <ul class="dropdown-menu text-small shadow">
                                 <li><a class="dropdown-item" href="#">@userManager.GetUserName(User)</a></li>
-                                <li><a class="dropdown-item" asp-action="ListRoles" asp-controller="Admin">권한목록</a></li>    
                                 @if (User.IsInRole("Admin"))
                                 {
+                                    <li><a class="dropdown-item" asp-action="ListRoles" asp-controller="Admin">권한목록</a></li>
+                                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Portfolio">포폴관리</a></li>
                                 }
                                 <li><a class="dropdown-item" asp-action="Profile" asp-controller="Account"
                                        asp-route-userName="@userManager.GetUserName(User)">프로필</a>

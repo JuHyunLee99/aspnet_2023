@@ -1,4 +1,5 @@
-﻿using aspnet02_boardapp.Models;
+﻿using aspnet02_boardapp.Data;
+using aspnet02_boardapp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,15 +8,22 @@ namespace aspnet02_boardapp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+        public HomeController(ApplicationDbContext db)
         {
-            _logger = logger;
+            _db = db;
         }
 
         public IActionResult Index()
         {
-            return View();
+            // SELECT * FROM portfolios WHERE Division = 'PORTFOLIO';
+            var model = _db.Portfolios.Where(q => q.Division == "PORTFOLIO").ToList();
+            return View(model);
         }
 
         public IActionResult Privacy()

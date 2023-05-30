@@ -59,6 +59,18 @@ APS.NET Core MVC 게시판
 - ASP.NET Core MVC
 	- 부트스트랩 테마(SEO Dream) 적용
 	
+	
+## 9일차
+- ASP.NET Core MVC
+	- SEO Dream 테마 완료
+		- 스크롤이 되는 화면, 안되는 화면 메뉴 분리
+		- 포토폴리오 동적관리 (이미지 업로드)
+		- ISS .net6.0 런타임 설치
+		
+## 10일치
 - APS.NET RestAPI
-- 개인포트폴리오
+	- OpenAPI같은 서비스를 운영
+	- RestAPI Server
+	- WPF Client
+- 개인 포트폴리오 웹
 	- 부트스트랩 테마 적용

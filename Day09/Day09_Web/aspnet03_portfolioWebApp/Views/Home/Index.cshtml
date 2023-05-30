@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<aspnet03_portfolioWebApp.Models.PortfolioModel>;
 @{
     ViewData["Title"] = "홈";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
@@ -239,8 +239,8 @@
       <div class="row">
         <div class="col-lg-5">
           <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
-            <h6>Our Portofolio</h6>
-            <h2>Discover Our Recent <em>Projects</em> And <span>Showcases</span></h2>
+            <h6>포토폴리오</h6>
+            <h2><em>프로젝트</em>와 <span>쇼케이스</span>를 감상하세요</h2>
           </div>
         </div>
       </div>
@@ -249,7 +249,39 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="loop owl-carousel">
-            <div class="item">
+              @if (Model.Count() > 0)
+                {
+                    var loop = 1;
+                    foreach (var item in Model)
+                    {
+                        if (loop % 2 == 1)
+                        {
+                            // 홀수이면
+                            @Html.Raw("<div class='item'>");
+                        }
+                        // 동적으로 포트폴리오 이미지 객체를 만들어주는 파트
+                        @Html.Raw(  "<div class='portfolio-item'>"+
+                                    "<div class='thumb'>"+
+                                    $"<img src='/uploads/{item.FileName}' width='445' height='305'>" +
+                                    "<div class='hover-content'>"+
+                                    "<div class='inner-content'>"+
+                                    $"<a href='{item.Url}' target='_blank'><h4>{item.Title}</h4></a>"+
+                                    $"<span>{item.Description}</span>"+
+                                    "</div>"+
+                                    "</div>"+
+                                    "</div>"+
+                                    "</div>")
+
+                        if(loop % 2 == 0)
+                        {   // 짝수이면
+                            @Html.Raw("</div>");
+                                
+                        }
+
+                        loop++;
+                    }
+                }
+            @*<div class="item">
               <div class="portfolio-item">
                 <div class="thumb">
                   <img src="~/themes/seo_dream/assets/images/portfolio-01.jpg" alt="">
@@ -272,8 +304,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="item">
+            </div>*@
+            @*<div class="item">
               <div class="portfolio-item">
                 <div class="thumb">
                   <img src="~/themes/seo_dream/assets/images/portfolio-02.jpg" alt="">
@@ -344,7 +376,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>*@
           </div>
         </div>
       </div>
