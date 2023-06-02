@@ -70,17 +70,17 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 300px;
-  transition: all ease-in-out 0.5s;
-  z-index: 9997;
-  transition: all 0.5s;
-  padding: 0 15px;
-  background: #040b14;
-  overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    bottom: 0;
+    width: 300px;
+    transition: all ease-in-out 0.5s;
+    z-index: 9997;
+    /*transition: all 0.5s;*/
+    padding: 0 15px;
+    background: #040b14;
+    overflow-y: auto;
 }
 
 #header .profile img {
@@ -128,7 +128,8 @@ h6 {
 }
 
 #main {
-  margin-left: 300px;
+    margin-left: 0;
+    transition: all ease-in-out 0.5s;
 }
 
 .container,
@@ -137,14 +138,15 @@ h6 {
   padding-right: 30px;
 }
 
+/*네비게이션 바 숨기기 해제*/
 @media (max-width: 1199px) {
-  #header {
+  /*#header {
     left: -300px;
-  }
+  }*/
 
-  #main {
+/*  #main {
     margin-left: 0;
-  }
+  }*/
 
   .container,
   .container-fluid {
@@ -227,13 +229,22 @@ h6 {
   cursor: pointer;
 }
 
-.mobile-nav-active {
-    overflow: hidden;
+/*.mobile-nav-active {
+    overflow: hiden;
+}*/
+.mobile-nav-active #main {
+    margin-left: 300px;
+    transition: all ease-in-out 0.5s;
 }
 
-.mobile-nav-active #header {
-  left: 0;
-}
+
+    .mobile-nav-active #header {
+        left: 0px;
+    }
+
+    .mobile-nav-active #footer {
+        left: 0px;
+    }
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -245,16 +256,6 @@ h6 {
   background-size: cover;
 }
 
-#hero:before {
-  content: "";
-  background: rgba(5, 13, 24, 0.3);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
 
 #hero .hero-container {
   position: relative;
@@ -1075,15 +1076,18 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  padding: 15px;
-  color: #f4f6fd;
-  font-size: 14px;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 300px;
-  z-index: 9999;
-  background: #040b14;
+    position: fixed;
+    left: -300px;
+    bottom: 0;
+    width: 300px;
+    transition: all ease-in-out 0.5s;
+    z-index: 9999;
+    /*transition: all 0.5s;*/
+    padding: 15px;
+    background: #040b14;
+    color: #f4f6fd;
+    font-size: 14px;
+    overflow-y: auto;
 }
 
 #footer .copyright {
@@ -1098,9 +1102,9 @@ section {
 }
 
 @media (max-width: 1199px) {
-  #footer {
+  /*#footer {
     position: static;
     width: auto;
     padding-right: 20px 15px;
-  }
+  }*/
 }

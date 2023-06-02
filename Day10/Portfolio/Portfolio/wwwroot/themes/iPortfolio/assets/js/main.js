@@ -34,9 +34,9 @@
     }
   }
 
-  /**
-   * Easy on scroll event listener 
-   */
+  //*
+  // * Easy on scroll event listener 
+   
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
   }
@@ -89,7 +89,7 @@
   }
 
   /**
-   * Mobile nav toggle
+   * Mobile nav toggle 메뉴 클릭시 토글 애니메이션
    */
   on('click', '.mobile-nav-toggle', function(e) {
     select('body').classList.toggle('mobile-nav-active')
@@ -105,12 +105,12 @@
       e.preventDefault()
 
       let body = select('body')
-      if (body.classList.contains('mobile-nav-active')) {
+        if (body.classList.contains('mobile-nav-active') && window.innerWidth<1200) {
         body.classList.remove('mobile-nav-active')
         let navbarToggle = select('.mobile-nav-toggle')
         navbarToggle.classList.toggle('bi-list')
         navbarToggle.classList.toggle('bi-x')
-      }
+        }
       scrollto(this.hash)
     }
   }, true)

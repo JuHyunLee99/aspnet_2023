@@ -1,33 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Portfolio.Data;
-using Portfolio.Models;
 using System.Diagnostics;
+using TodoItemWeb.Models;
 
-namespace Portfolio.Controllers
+namespace TodoItemWeb.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ApplicationDbContext _db;
 
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
-        public HomeController (ApplicationDbContext db)
+        public HomeController(ILogger<HomeController> logger)
         {
-            _db = db;
+            _logger = logger;
         }
 
         public IActionResult Index()
-        {
-            var model = _db.Portfolios.ToList();
-            
-            return View(model);
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }
