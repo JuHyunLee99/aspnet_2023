@@ -127,7 +127,7 @@ h6 {
   text-decoration: none;
 }
 
-#main {
+#main, .main {
     margin-left: 0;
     transition: all ease-in-out 0.5s;
 }
@@ -174,16 +174,16 @@ h6 {
   white-space: nowrap;
 }
 
-.nav-menu a,
-.nav-menu a:focus {
-  display: flex;
-  align-items: center;
-  color: #a8a9b4;
-  padding: 12px 15px;
-  margin-bottom: 8px;
-  transition: 0.3s;
-  font-size: 15px;
-}
+    .nav-menu a,
+    .nav-menu a:focus {
+        display: flex;
+        align-items: center;
+        color: #a8a9b4;
+        padding: 12px 15px;
+        margin-bottom: 8px;
+        transition: 0.3s;
+        font-size: 15px;
+    }
 
 .nav-menu a i,
 .nav-menu a:focus i {
@@ -237,14 +237,17 @@ h6 {
     transition: all ease-in-out 0.5s;
 }
 
+.mobile-nav-active .main {
+    margin-left: 300px;
+    transition: all ease-in-out 0.5s;
+}
+.mobile-nav-active #header {
+    left: 0px;
+}
 
-    .mobile-nav-active #header {
-        left: 0px;
-    }
-
-    .mobile-nav-active #footer {
-        left: 0px;
-    }
+.mobile-nav-active #footer {
+    left: 0px;
+}
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -1077,7 +1080,7 @@ section {
 --------------------------------------------------------------*/
 #footer {
     position: fixed;
-    left: -300px;
+    left: -300px; 
     bottom: 0;
     width: 300px;
     transition: all ease-in-out 0.5s;

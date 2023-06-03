@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>@ViewData["Title"] - 포토폴리오 웹앱</title>
     <!-- Favicons -->
     <link rel="icon" href="~/themes/iPortfolio/assets/img/introduction.png" />
     <!-- WYSWYG 에디터 링크 -->
@@ -26,9 +27,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 </head>
 @*<body class="mobile-nav-active">*@
-<body>
+<body class="mobile-nav-active">
     <!-- ======= Mobile nav toggle button ======= -->
-    <i class="bi bi-list mobile-nav-toggle"></i>
+    <i class="bi bi-x mobile-nav-toggle"></i>
 
     <!-- ======= Header ======= -->
     <header id="header">
@@ -37,24 +38,43 @@
             <div class="profile">
                 <img src="~/themes/iPortfolio/assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
                 <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
-                <div class="social-links mt-3 text-center">
-                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                </div>
             </div>
 
             <nav id="navbar" class="nav-menu navbar">
                 <ul>
-                    <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-                    <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-                    <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-                    <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-                    <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-                    <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+                    <li><a asp-action="Index" asp-controller="Home" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+                    @if (ViewData["NavHome"] == "true")
+                    {
+                        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+                        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+                        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+                        <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
+                        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+                    }
+
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <li>
+                            <a asp-controller="Account" asp-action="Profile" asp-route-userName="@userManager.GetUserName(User)" class="nav-link scrollto active"><i class="bi bi-sliders"></i><span>관리자</span></a>
+                        </li>
+                        @if (ViewData["NavHome"] != "true")
+                        {
+                            <li><a asp-controller="Portfolio" asp-action="Create" class="nav-link scrollto active"><span>Portfolio 관리</span></a></li>
+                        }
+                        <li class="nav-link scrollto active">
+                            <form asp-controller="Account" asp-action="Logout" method="post">
+                                <button type="submit" style="padding: 12px 15px;" class="btn btn-link nanum-bold">@userManager.GetUserName(User)</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Account" asp-action="Login" class="nav-link scrollto active"><i class="bi bi-sliders"></i><span>관리자</span></a></li>
+                    }
                 </ul>
+                    
+                       
+                
             </nav><!-- .nav-menu -->
         </div>
     </header><!-- End Header -->

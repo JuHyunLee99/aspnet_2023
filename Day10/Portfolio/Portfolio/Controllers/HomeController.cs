@@ -7,7 +7,7 @@ namespace Portfolio.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        // private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _db;
 
         //public HomeController(ILogger<HomeController> logger)
@@ -23,7 +23,8 @@ namespace Portfolio.Controllers
         public IActionResult Index()
         {
             var model = _db.Portfolios.ToList();
-            
+            ViewData["NavHome"] = "true";
+
             return View(model);
         }
 

@@ -11,8 +11,8 @@ using Portfolio.Data;
 namespace Portfolio.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230601081545_AddPortfolioToMySQL")]
-    partial class AddPortfolioToMySQL
+    [Migration("20230603081729_AddPortfolioToMySql")]
+    partial class AddPortfolioToMySql
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
