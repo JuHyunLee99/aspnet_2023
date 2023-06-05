@@ -105,11 +105,12 @@
       e.preventDefault()
 
       let body = select('body')
-        if (body.classList.contains('mobile-nav-active') && window.innerWidth<1200) {
-        body.classList.remove('mobile-nav-active')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
+        if (body.classList.contains('mobile-nav-active') && window.innerWidth < 1200)
+        {
+            body.classList.remove('mobile-nav-active')
+            let navbarToggle = select('.mobile-nav-toggle')
+            navbarToggle.classList.toggle('bi-list')
+            navbarToggle.classList.toggle('bi-x')
         }
       scrollto(this.hash)
     }

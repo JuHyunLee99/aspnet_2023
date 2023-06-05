@@ -1,0 +1,44 @@
+﻿@model Portfolio.Models.RegisterModel
+@{
+    ViewData["Title"] = "프로필";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="main">
+    <section>
+        <div class="container">          
+            <div class="row">
+                <div class="col-4 m-auto">
+                    <form asp-action="Login">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="section-title">
+                            <h2>Profile</h2>
+                        </div>
+
+                        <div class="form-floating mb-1">
+                            <input asp-for="Email" type="email" class="form-control" placeholder="Email" readonly>
+                            <label asp-for="Email"></label>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-1">
+                            <input asp-for="PhoneNumber" type="text" class="form-control" placeholder="PhoneNumber">
+                            <label asp-for="PhoneNumber"></label>
+                        </div>
+                        <div class="form-floating mb-1">
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+                            <label asp-for="Password"></label>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-1">
+                            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="ConfirmPassword">
+                            <label asp-for="ConfirmPassword"></label>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">프로필변경</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

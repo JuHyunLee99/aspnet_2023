@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Portfolio.Migrations
 {
     /// <inheritdoc />
-    public partial class AddPortfolioToMySQL : Migration
+    public partial class AddPortfolioToMySql : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
