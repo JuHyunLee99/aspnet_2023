@@ -70,14 +70,14 @@ APS.NET Core MVC 게시판
 		- 포토폴리오 동적관리 (이미지 업로드)
 		- ISS .net6.0 런타임 설치
 		
-SEO Theme 완료
+SEO Theme 완료  
 <img src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet07.gif?raw=true" width="780"/>
 		
 ## 10일차
 - APS.NET RestAPI
 	- RestAPI Server
-RestAPI Server
-<img src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet08/.png?raw=true" width="780"/>
+RestAPI Server  
+<img src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet08.PNG?raw=true" width="780"/>
 
 	
 - 개인 포트폴리오 웹
@@ -93,12 +93,12 @@ RestAPI Server
 	- RestAPI Server 수정
 	- FrontEnd Server 작업계속
 
-RestAPI 사용 FrontEnd Web
+RestAPI 사용 FrontEnd Web  
 <img src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet09.gif?raw=true" width="780"/>
 	
 ## 13일차
 - ASP.NET RestAPI
 	- WPF 앱 연동
 
-RestAPI사용 WPF App 및 Web화면
+RestAPI사용 WPF App 및 Web화면  
 <img src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet10.gif?raw=true" width="780"/>
