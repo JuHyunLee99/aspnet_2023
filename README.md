@@ -77,7 +77,7 @@ SEO Theme 완료
 - APS.NET RestAPI
 	- RestAPI Server
 RestAPI Server
-src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet08/.png?raw=true" width="780"/>
+<img src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet08/.png?raw=true" width="780"/>
 
 	
 - 개인 포트폴리오 웹
@@ -94,11 +94,11 @@ src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet08/.png?r
 	- FrontEnd Server 작업계속
 
 RestAPI 사용 FrontEnd Web
-src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet09.gif?raw=true" width="780"/>
+<img src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet09.gif?raw=true" width="780"/>
 	
 ## 13일차
 - ASP.NET RestAPI
 	- WPF 앱 연동
 
 RestAPI사용 WPF App 및 Web화면
-src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet10.gif?raw=true" width="780"/>
+<img src="https://github.com/JuHyunLee99/aspnet_2023/blob/main/images/aspnet10.gif?raw=true" width="780"/>
