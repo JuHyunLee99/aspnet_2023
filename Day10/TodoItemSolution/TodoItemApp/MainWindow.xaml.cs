@@ -2,6 +2,7 @@
 using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
@@ -109,7 +110,7 @@ namespace TodoItemApp
                 var response = await client.PostAsJsonAsync("api/TodoItems", todoItem);
                 response.EnsureSuccessStatusCode();
 
-                GetData();
+                GetData();  // inset후 다시 데이터 로드 호출
 
                 TxtId.Text = TxtTitle.Text = string.Empty;
                 CboIsComplete.SelectedIndex = -1;
@@ -132,16 +133,126 @@ namespace TodoItemApp
                 });
             }
         }
-
-        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
+        private async void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                var todoItem = new TodoItem()
+                {
+                    Id = Int32.Parse(TxtId.Text),
+                    Title = TxtTitle.Text,
+                    TodoDate = ((DateTime)DtpTodoDate.SelectedDateTime).ToString("yyyy-MM-dd HH:mm:ss"),
+                    IsComplete = Int32.Parse((CboIsComplete.SelectedItem as DivCode).Value)
+                };
 
+                // Update할때는 Put메서드 사용 // 한건만
+                var response = await client.PutAsJsonAsync($"api/TodoItems/{todoItem.Id}", todoItem);
+                response.EnsureSuccessStatusCode();
+
+                GetData();  // inset후 다시 데이터 로드 호출
+
+                TxtId.Text = TxtTitle.Text = string.Empty;
+                CboIsComplete.SelectedIndex = -1;
+            }
+            catch (Newtonsoft.Json.JsonException jEx)
+            {
+                await this.ShowMessageAsync("error", jEx.Message, MessageDialogStyle.Affirmative, new MetroDialogSettings()
+                {
+                    // 메시지 다이얼로그가 나타날 때와 사라질 때 애니메이션 효과
+                    AnimateShow = true,
+                    AnimateHide = true
+                });
+            }
+            catch (HttpRequestException ex)
+            {
+                await this.ShowMessageAsync("error", ex.Message, MessageDialogStyle.Affirmative, new MetroDialogSettings()
+                {
+                    AnimateShow = true,
+                    AnimateHide = true
+                });
+            }
+        }
+        private async void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var Id = Int32.Parse(TxtId.Text);   // 삭제는 Id만 보내면 됨
+
+                // Delete할때는 DeleteAsync 사용 // 한건만
+                var response = await client.DeleteAsync($"api/TodoItems/{Id}");
+                response.EnsureSuccessStatusCode();
+
+                GetData();  // inset후 다시 데이터 로드 호출
+
+                TxtId.Text = TxtTitle.Text = string.Empty;
+                CboIsComplete.SelectedIndex = -1;
+            }
+            catch (Newtonsoft.Json.JsonException jEx)
+            {
+                await this.ShowMessageAsync("error", jEx.Message, MessageDialogStyle.Affirmative, new MetroDialogSettings()
+                {
+                    // 메시지 다이얼로그가 나타날 때와 사라질 때 애니메이션 효과
+                    AnimateShow = true,
+                    AnimateHide = true
+                });
+            }
+            catch (HttpRequestException ex)
+            {
+                await this.ShowMessageAsync("error", ex.Message, MessageDialogStyle.Affirmative, new MetroDialogSettings()
+                {
+                    AnimateShow = true,
+                    AnimateHide = true
+                });
+            }
+        }
+        private async void GrdTodoItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Debug.WriteLine(GrdTodoItems.SelectedIndex.ToString());
+
+            try // API 호출
+            {
+                var Id = ((TodoItem)GrdTodoItems.SelectedItem).Id;
+                Debug.WriteLine(Id);
+
+                // https://localhost:7058/api/TodoItems // 한건만
+                HttpResponseMessage? response = await client.GetAsync($"api/TodoItems/{Id}");  //Get method 비동기 호출
+                response.EnsureSuccessStatusCode(); // 에러가 났으면 오류코드를 던진다(예외발생)
+
+                // 응답에서 getData와 다르게 한 건 <TodoItem> 형식으로 읽어옴
+                var item = await response.Content.ReadAsAsync<TodoItem>();
+                Debug.WriteLine(item.Title);
+
+                TxtId.Text = item.Id.ToString();
+                TxtTitle.Text= item.Title;
+                DtpTodoDate.SelectedDateTime = DateTime.Parse(item.TodoDate);
+                CboIsComplete.SelectedIndex = item.IsComplete == 1 ? 0 : 1;
+            }
+            catch (Newtonsoft.Json.JsonException jEx)
+            {
+                await this.ShowMessageAsync("error", jEx.Message, MessageDialogStyle.Affirmative, new MetroDialogSettings()
+                {
+                    // 메시지 다이얼로그가 나타날 때와 사라질 때 애니메이션 효과
+                    AnimateShow = true,
+                    AnimateHide = true
+                });
+            }
+            catch (HttpRequestException ex)
+            {
+                await this.ShowMessageAsync("error", ex.Message, MessageDialogStyle.Affirmative, new MetroDialogSettings()
+                {
+                    AnimateShow = true,
+                    AnimateHide = true
+                });
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"이외 예외 {ex.Message}");
+            }
         }
 
-
-        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        private void BtnLoad_Click(object sender, RoutedEventArgs e)
         {
-
+            GetData();
         }
     }
 }
