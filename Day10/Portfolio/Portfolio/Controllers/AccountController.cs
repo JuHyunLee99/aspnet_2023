@@ -137,8 +137,8 @@ namespace Portfolio.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    TempData["success"] = "프로빌변경 성공했습니다.";
-                    return RedirectToAction("Index", "Home");
+                    TempData["succeed"] = "프로빌 변경 성공했습니다.";
+                    return RedirectToAction("Index", "Portfolio");
                 }
 
                 foreach (var error in result.Errors)

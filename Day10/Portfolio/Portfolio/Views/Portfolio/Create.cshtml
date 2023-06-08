@@ -1,52 +1,55 @@
-﻿@model Portfolio.Models.PortfolioModel
+﻿@model Portfolio.Models.TempPortfolioModel    // 아님 PortfolioModel
 
 @{
     ViewData["Title"] = "Create";
 }
+<main class="main">
+    <section>
+        <div class="container">
 
-<h1>Create</h1>
+            <div class="section-title">
+                <h2>Portfolio 관리</h2>
+            </div>
 
-<h4>PortfolioModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Division" class="control-label"></label>
-                <input asp-for="Division" class="form-control" />
-                <span asp-validation-for="Division" class="text-danger"></span>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Division" class="control-label"></label>
+                            <input asp-for="Division" class="form-control" />
+                            <span asp-validation-for="Division" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Title" class="control-label"></label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Url" class="control-label"></label>
+                            <input asp-for="Url" class="form-control" />
+                            <span asp-validation-for="Url" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PortfolioImage" class="control-label"></label>
+                            <input asp-for="PortfolioImage" class="form-control" type="file" accept=".png, .jpg, .jpeg" />
+                            <span asp-validation-for="PortfolioImage" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label"></label>
+                            <textarea asp-for="Description" class="form-control" rows="10"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-Portfolio">Create</button>
+                            <a asp-controller="Portfolio" asp-action="Index" class="btn btn-Portfolio">List</a>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Url" class="control-label"></label>
-                <input asp-for="Url" class="form-control" />
-                <span asp-validation-for="Url" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FileName" class="control-label"></label>
-                <input asp-for="FileName" class="form-control" />
-                <span asp-validation-for="FileName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+        </div>
+    </section>
+</main>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
