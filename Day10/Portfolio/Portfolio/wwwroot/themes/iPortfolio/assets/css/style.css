@@ -253,10 +253,10 @@ h6 {
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
-  width: 100%;
-  height: 100vh;
-  background: url("../img/hero-bg.jpg") top center;
-  background-size: cover;
+    width: 100%;
+    height: 100vh;
+    background: white top center;
+    background-size: cover;
 }
 
 
@@ -271,18 +271,18 @@ h6 {
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
-  color: #fff;
+  color: black;
 }
 
 #hero p {
-  color: #fff;
+  color: black;
   margin-bottom: 50px;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
 }
 
 #hero p span {
-  color: #fff;
+  color: black;
   padding-bottom: 4px;
   letter-spacing: 1px;
   border-bottom: 3px solid #149ddd;
